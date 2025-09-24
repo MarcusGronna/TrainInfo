@@ -19,6 +19,7 @@ coverage/
 *.codecoverage
 *.trx
 
+
 # IDE / tooling
 .vs/
 .idea/

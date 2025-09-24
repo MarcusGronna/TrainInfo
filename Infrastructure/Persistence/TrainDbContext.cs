@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Persistence
 {
-    internal class TrainDbContext : DbContext
-    {
-        pu
-    }
+    //internal class TrainDbContext : DbContext
+    //{
+    //    pu
+    //}
 }
