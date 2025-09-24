@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Mock_Db\Mock_Db.csproj" />
   </ItemGroup>
 
   <ItemGroup>

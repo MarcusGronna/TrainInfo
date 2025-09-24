@@ -1,26 +1,25 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/.vs/TrainInfo/FileContentIndex
-
-# -------- .NET build output --------
+﻿# .NET build output (alla nivåer)
 bin/
 obj/
+**/bin/
+**/obj/
 Debug/
 Release/
+**/Debug/
+**/Release/
 publish/
 out/
 
-# -------- Tests & coverage --------
+# Tests & coverage
 TestResults/
-*.trx
+**/TestResults/
 coverage/
 *.coverage
 *.coveragexml
 *.codecoverage
+*.trx
 
-# -------- IDE / tooling --------
+# IDE / tooling
 .vs/
 .idea/
 .ReSharper*/
@@ -33,19 +32,18 @@ coverage/
 *.userosscache
 *.sln.docstates
 
-
-# -------- Logs / temp --------
+# Logs / temp
 *.log
 *.tmp
 *.swp
 
-# -------- NuGet (legacy layout) --------
-packages/
-# Behåll build-targets om de skulle finnas i äldre projekt:
-!packages/*/build/
-!packages/*/build/**
+# Local DB
+*.db
+*.sqlite
+*.db-wal
+*.db-shm
 
-# -------- Secrets / cert / local overrides --------
+# Secrets / local overrides
 *.pfx
 *.snk
 secrets.json
@@ -53,17 +51,11 @@ appsettings.*.local.json
 .env
 .env.*
 
-# -------- Local databases --------
-*.db
-*.sqlite
-*.db-shm
-*.db-wal
-
-# -------- OS/editor noise --------
+# OS/editor noise
 .DS_Store
 Thumbs.db
 
-# -------- VS Code: tillåt delade settings --------
+# VS Code (behåll delade filer)
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
