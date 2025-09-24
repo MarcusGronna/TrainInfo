@@ -12,16 +12,19 @@
 
     /// <summary>
     /// Domain entity: POCO, no EF-dependencies in domain-layer
-    /// </summary
+    /// </summary>
     public class Train
     {
-        public Guid Id { get; set; }
-        public string TrainNumber { get; set; } = "";
-        public DateTime Created { get; set; }
-        public DateTime Updated { get; set; }
-        public TrainType TrainType { get; set; }
+        public Guid Id { get; private set; }
+        public string TrainNumber { get; private set; } = string.Empty;
+        public DateTime Created { get; private set; } // store as UTC
+        public DateTime Updated { get; private set; } // store as UTC
+        public TrainType TrainType { get; private set; }
 
-        //Olika DateTime??  Update och Create är olika?
+        // EF Core needs a parameterless constructor. Why?
+        private Train() { }
+
+        
         // Factory method
         public static Train Create(
             string trainNumber,
