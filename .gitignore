@@ -3,3 +3,68 @@
 ################################################################################
 
 /.vs/TrainInfo/FileContentIndex
+
+# -------- .NET build output --------
+bin/
+obj/
+Debug/
+Release/
+publish/
+out/
+
+# -------- Tests & coverage --------
+TestResults/
+*.trx
+coverage/
+*.coverage
+*.coveragexml
+*.codecoverage
+
+# -------- IDE / tooling --------
+.vs/
+.idea/
+.ReSharper*/
+*.DotSettings.user
+
+# VS/Rider user- & solution-state
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+
+# -------- Logs / temp --------
+*.log
+*.tmp
+*.swp
+
+# -------- NuGet (legacy layout) --------
+packages/
+# Behåll build-targets om de skulle finnas i äldre projekt:
+!packages/*/build/
+!packages/*/build/**
+
+# -------- Secrets / cert / local overrides --------
+*.pfx
+*.snk
+secrets.json
+appsettings.*.local.json
+.env
+.env.*
+
+# -------- Local databases --------
+*.db
+*.sqlite
+*.db-shm
+*.db-wal
+
+# -------- OS/editor noise --------
+.DS_Store
+Thumbs.db
+
+# -------- VS Code: tillåt delade settings --------
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
