@@ -1,13 +1,7 @@
-﻿namespace Domain.Entities
+﻿using Domain.Enums;
+
+namespace Domain.Entities
 {
-    /// <summary>
-    /// Type of train in domain
-    /// </summary>
-    public enum TrainType
-    {
-        Passenger = 0,
-        Service = 1,
-    }
 
 
     /// <summary>

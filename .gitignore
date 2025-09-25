@@ -18,6 +18,8 @@ coverage/
 *.coveragexml
 *.codecoverage
 *.trx
+Mock_Db/
+Tests/
 
 
 # IDE / tooling
