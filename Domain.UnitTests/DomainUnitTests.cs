@@ -14,7 +14,7 @@ namespace Domain.UnitTests
 
             // act
             var train = Train.Create(trainNumber, trainType);
-            
+
 
             // assert
             Assert.NotNull(train);
