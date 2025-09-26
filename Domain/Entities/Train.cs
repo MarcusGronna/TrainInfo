@@ -18,6 +18,8 @@ namespace Domain.Entities
         // EF Core needs a parameterless constructor. Why?
         private Train() { }
 
+
+
         
         // Factory method
         public static Train Create(

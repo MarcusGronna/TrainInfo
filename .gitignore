@@ -20,8 +20,7 @@ coverage/
 *.trx
 Mock_Db/
 Tests/
-Domain.UnitTests/
-Application.UnitTest/
+
 
 
 # IDE / tooling
