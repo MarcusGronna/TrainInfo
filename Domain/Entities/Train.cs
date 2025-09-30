@@ -18,9 +18,6 @@ namespace Domain.Entities
         // EF Core needs a parameterless constructor. Why?
         private Train() { }
 
-
-
-        
         // Factory method
         public static Train Create(
             string trainNumber,
@@ -33,6 +30,21 @@ namespace Domain.Entities
                 Created = DateTime.Now,
                 TrainType = trainType
             };
+        }
+
+        public void UpdateTime()
+        {
+            Updated = DateTime.Now;
+        }
+
+        public void UpdateTrainNumber(string value)
+        {
+            TrainNumber = value;
+        }
+
+        public void UpdateTrainType(TrainType trainType)
+        {
+            TrainType = trainType;
         }
     }
 }
