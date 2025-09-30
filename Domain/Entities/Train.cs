@@ -28,6 +28,7 @@ namespace Domain.Entities
                 Id = Guid.NewGuid(),
                 TrainNumber = trainNumber,
                 Created = DateTime.Now,
+                Updated = DateTime.Now,
                 TrainType = trainType
             };
         }
