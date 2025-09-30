@@ -44,10 +44,29 @@ namespace Infrastructure.Data
                 .IsRequired();
 
             // Seed - determine GUIDs for migration
-            var t1 = Train.Create("73271", TrainType.Passenger);
-            var t2 = Train.Create("73272", TrainType.Service);
+            //var t1 = Train.Create("73271", TrainType.Passenger);
+            //var t2 = Train.Create("73272", TrainType.Service);
+            var tCreated = new DateTime(2025, 01, 01, 0, 0, 0, DateTimeKind.Utc);
 
-            b.Entity<Train>().HasData(t1, t2);
+            b.Entity<Train>().HasData(
+                new
+                {
+                    Id = Guid.Parse("11111111-1111-1111-1111-111111111111"),
+                    TrainNumber = "73271",
+                    TrainType = TrainType.Passenger,
+                    Created = tCreated,
+                    Updated = tCreated
+                },
+                new
+                {
+                    Id = Guid.Parse("22222222-2222-2222-2222-222222222222"),
+                    TrainNumber = "73272",
+                    TrainType = TrainType.Service,
+                    Created = tCreated,
+                    Updated = tCreated
+                });
+
+            //b.Entity<Train>().HasData(t1, t2);
         }
        
         // Automatic timestamp
