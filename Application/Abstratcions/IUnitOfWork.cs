@@ -6,5 +6,7 @@
     public interface IUnitOfWork
     {
         Task<int> SaveChangesAsync(CancellationToken ct = default);
+
+        Task<IDisposable> BeginTransactionAsync(CancellationToken ct = default);
     }
 }
