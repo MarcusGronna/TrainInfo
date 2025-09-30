@@ -4,6 +4,8 @@ using Application.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Register complete Infrastructure
     //DbContext (SQLite). Make sure ConnectionStrings:TrainDb in appsettings.json
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -18,14 +20,16 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    //app.MapOpenApi();
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+        //app.MapOpenApi();
 
-}
+    }
+
+app.UseInfrastructureMigrations();
 
 app.UseHttpsRedirection();
 
