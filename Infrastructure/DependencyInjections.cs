@@ -15,12 +15,20 @@ public static class DependencyInjections
     {
         // Read connection string
         var conn = configuration.GetConnectionString("DefaultConnection");
+        //var dbPath = Path.Combine(builder.Environment.ContentRootPath, "Data", "traininfo.db");
 
         // Register DbContext (TrainDbContext can be internal)
         services.AddDbContext<TrainDbContext>(opt => opt.UseSqlite(conn));
 
         // Register implementations
         services.AddScoped<ITrainRepository, TrainRepository>();
+
+        // Register IUnitOfWork through fabric inside Infrastructure
+        services.AddScoped<IUnitOfWork>(sp =>
+        {
+            var db = sp.GetRequiredService<TrainDbContext>();
+            return new UnitOfWork(db);
+        });
 
         return services;
     }
