@@ -19,7 +19,7 @@ coverage/
 *.codecoverage
 *.trx
 Mock_Db/
-Tests/
+
 
 
 
@@ -64,3 +64,28 @@ Thumbs.db
 !.vscode/settings.json
 !.vscode/extensions.json
 !.vscode/tasks.json
+
+# --- Extra rekommenderade ignoreringsregler ---
+
+# Publiceringsprofiler & deployartefakter
+*.pubxml
+*.pubxml.user
+Properties/PublishProfiles/
+artifacts/
+dist/
+publish/          # du har redan denna (ok med dubblett)
+
+# Bygg-/diagnostikloggar
+*.binlog
+logs/
+
+# SQLite/DB-journalfiler (komplettering)
+*.sqlite-journal
+*.db-journal
+
+# Paket/artefakter (om du inte versionerar dem)
+*.nupkg
+
+# Benchmark/coverage-artefakter (vanliga verktyg)
+BenchmarkDotNet.Artifacts/
+coverage.cobertura.xml
