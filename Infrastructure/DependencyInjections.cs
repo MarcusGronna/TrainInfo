@@ -1,0 +1,28 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Infrastructure.Data;
+using Infrastructure.Repositories;
+using Application.Abstractions;
+
+namespace Infrastructure;
+
+public static class DependencyInjections
+{
+    public static IServiceCollection AddInfrastructure(
+        this IServiceCollection services,
+        IConfiguration configuration)
+    {
+        // Read connection string
+        var conn = configuration.GetConnectionString("DefaultConnection");
+
+        // Register DbContext (TrainDbContext can be internal)
+        services.AddDbContext<TrainDbContext>(opt => opt.UseSqlite(conn));
+
+        // Register implementations
+        services.AddScoped<ITrainRepository, TrainRepository>();
+
+        return services;
+    }
+}
+
