@@ -1,6 +1,7 @@
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Application.Abstractions;
+using Application.UseCases.Trains;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Register complete Infrastructure
     //DbContext (SQLite). Make sure ConnectionStrings:TrainDb in appsettings.json
 builder.Services.AddInfrastructure(builder.Configuration);
+
+// DI - to be able to use HandleAsync from class
+builder.Services.AddScoped<CreateTrain>();
+
+
 
 // Add services to the container.
 //builder.Services.AddSingleton<Mock_Db>();
