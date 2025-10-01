@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Enums
+﻿namespace Domain.Enums
 {
     /// <summary>
     /// Type of train in domain
     /// </summary>
-    public enum TrainType
+    [Flags]
+    public enum TrainType : byte
     {
-        Passenger = 0,
-        Service = 1,
+        Passenger = 0b_00000000,
+        Service = 0b_00000001,
     }
-
 }

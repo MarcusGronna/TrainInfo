@@ -2,8 +2,6 @@
 
 namespace Domain.Entities
 {
-
-
     /// <summary>
     /// Domain entity: POCO, no EF-dependencies in domain-layer
     /// </summary>
