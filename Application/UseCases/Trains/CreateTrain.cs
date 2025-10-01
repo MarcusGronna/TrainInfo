@@ -11,6 +11,7 @@ namespace Application.UseCases.Trains
 
         public async Task<Train> HandleAsync(string trainNumber, TrainType type, CancellationToken ct = default)
         {
+            // Put in create method in domain instead
             if (string.IsNullOrWhiteSpace(trainNumber))
                 throw new ArgumentException("TrainNumber is required.", nameof(trainNumber));
 
