@@ -16,14 +16,12 @@ namespace Infrastructure.Repositories
         public Task<Train?> GetByIdAsync(Guid id, CancellationToken ct = default)
             => _db.Trains.AsNoTracking().FirstOrDefaultAsync(t => t.Id == id, ct);
 
-        // Helper
-        public Task<bool> ExistsTrainNumberAsync(string trainNumber, CancellationToken ct = default)
-            => _db.Trains.AnyAsync(t => t.TrainNumber == trainNumber, ct);
 
         // Write
         public async Task AddAsync(Train entity, CancellationToken ct = default)
             => await _db.Trains.AddAsync(entity, ct);
 
+        // Update
         public async Task UpdateAsync(Train entity, CancellationToken ct = default)
         {
             var existing = await _db.Trains.FirstOrDefaultAsync(t => t.Id == entity.Id, ct);
@@ -33,6 +31,7 @@ namespace Infrastructure.Repositories
             existing.UpdateTrainType(entity.TrainType);
         }
         
+        // Delete
         public Task RemoveAsync(Train entity, CancellationToken ct = default)
         {
             // If entity not tracked, attach and mark for delete
@@ -40,5 +39,9 @@ namespace Infrastructure.Repositories
             _db.Trains.Remove(entity);
             return Task.CompletedTask; // Commit in IUnitOfWork.SaveChangesAsync()
         }
+    
+        // Helper
+        public Task<bool> ExistsTrainNumberAsync(string trainNumber, CancellationToken ct = default)
+            => _db.Trains.AnyAsync(t => t.TrainNumber == trainNumber, ct);
     }
 }
